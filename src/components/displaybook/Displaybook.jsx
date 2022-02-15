@@ -14,8 +14,7 @@ function Displaybook() {
       .then((result) => {
         console.log(result);
         setBooks(result.data.data);
-        
-       
+
         console.log("getting all books");
       })
       .catch((err) => {
