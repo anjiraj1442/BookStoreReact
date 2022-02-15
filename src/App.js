@@ -7,6 +7,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Dashboard from "./pages/dashboard/Dasboard";
 
 
 
@@ -16,7 +17,7 @@ function App() {
     <Router>
     <Routes>
       <Route exact path="/" element={<Mainpage/>} />
-      
+      <Route path="/dashboard" element={<Dashboard/>} />
       
       </Routes>
     </Router>

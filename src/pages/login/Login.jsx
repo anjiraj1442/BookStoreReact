@@ -2,10 +2,10 @@ import React from 'react';
 import { Button, TextField } from '@material-ui/core';
 import './Login.scss'
 import { UserService } from '../../Service/UserService';
-import { useNavigate } from 'react-router';
+ import { useNavigate } from 'react-router';
 
 function Login() {
-     const navigate = useNavigate();
+      const navigate = useNavigate();
     const[textfieldvalues,setTextfieldvalues]= React.useState({
         emailId : "",
         password : "",
@@ -33,11 +33,13 @@ function Login() {
                 "email":textfieldvalues.emailId,
                 "password" : textfieldvalues.password
             }
-            UserService.login(data).then((data)=>{
-                console.log(data.data.data.result.fullname);
-            localStorage.setItem("name" ,data.data.data.result.fullname )
-            localStorage.setItem("token",data.data.data.token)
-            navigate('/dashboard')
+            UserService.login(data).then(()=>{
+                console.log("step");
+                console.log(data);
+            //     console.log(data.data.data.result.fullname);
+            // localStorage.setItem("name" ,data.data.data.result.fullname )
+            // localStorage.setItem("token",data.data.data.token)
+             navigate('/dashboard')
             }).catch((err)=>{
                 
             })
@@ -46,15 +48,15 @@ function Login() {
     return (<>
         <div className='login'>
             <div className='mail'>
-                <TextField name ="emailId" className="emailfield" style={{ backgroundColor: 'white' }} size="small" type='text' id="outlined-email" label="Email Id" variant="outlined"
+                <TextField name ="emailId" className="emailfield"  size="small" type='text' id="outlined-email" label="Email Id" variant="outlined"
                 onChange={(e)=>changeFields(e)} error={textfieldvalues.emailIdError}/>
             </div>
             <div>
-                <TextField name="password" className="passwordfield" style={{ backgroundColor: 'white' }} size="small" type='password' id="outlined-password" label="Password" variant="outlined"
+                <TextField name="password" className="passwordfield"  size="small" type='password' id="outlined-password" label="Password" variant="outlined"
                onChange={(e)=>changeFields(e)} error ={textfieldvalues.passwordError} />
             </div>
             <br></br>
-            <Button className='loginbutton' style={{ backgroundColor: '#A03037' }} onClick={()=>login()} > Login </Button>
+            <Button className='loginbutton'  onClick={()=>login()} > Login </Button>
             <p className='mid'>OR</p>
             <div className='Buttons'>
                 <div className='facebookbButton'>

@@ -1,6 +1,6 @@
 import AxiosService from "./AxiosService";
 
-let url = 'http://localhost:3001/user';
+let url = 'http://localhost:3010/api/v1/user';
 
 export const UserService = {
      login: (data) => {

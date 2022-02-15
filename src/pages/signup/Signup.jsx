@@ -43,7 +43,7 @@ function Signup() {
             }
             UserService.signup(data).then(()=>{
                 console.log("sucss");
-            }).catch((err)=>{
+            }).catch(()=>{
                 console.log("fail");
             })
         }
@@ -52,22 +52,22 @@ function Signup() {
     return <>
         <div className='signup'>
             <div className='fullName'>
-                <TextField name="fullname" style={{ width: "232px" }} size="small" type='text' variant="outlined" label="First Name"
+                <TextField name="fullname"  size="small" type='text' variant="outlined" label="First Name"
                 onChange={(e)=>{changevalues(e)}} error={fields.fullnameError}/>
             </div>
             <div className='emailInput'>
-                <TextField name="email" style={{ width: "232px" }} size="small" type='email' variant="outlined" label="Email Id"
+                <TextField name="email"  size="small" type='email' variant="outlined" label="Email Id"
                 onChange={(e)=>{changevalues(e)}} error={fields.emailError}/>
             </div>
             <div className='password'>
-                <TextField name="password" style={{ width: "232px" }} size="small" type='password' variant="outlined" label="Password"
+                <TextField name="password" size="small" type='password' variant="outlined" label="Password"
                 onChange={(e)=>{changevalues(e)}} error = {fields.passwordError}/>
             </div>
-            <div>
-                <TextField name="phone" style={{ width: "232px" }} className='phonenumber' size="small" type='number' variant="outlined" label="Number"
+            <div className='phonenumber'>
+                <TextField name="phone"  size="small" type='number' variant="outlined" label="Number"
                 onChange={(e)=>{changevalues(e)}} error = {fields.phoneError}/>
             </div>
-            <div> <Button className='signupButton' style={{ backgroundColor: '#A03037' }} onClick={()=>signup()} > SignUp </Button>
+            <div> <Button className='signupButton'  onClick={()=>signup()} > SignUp </Button>
             </div>
         </div>
     </>;

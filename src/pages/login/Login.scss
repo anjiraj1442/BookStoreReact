@@ -1,15 +1,17 @@
 .login {
   .emailfield {
     width: 232px;
-
+    background-color: white;
     margin-top: 10px;
   }
   .passwordfield {
     margin-top: 15px;
     width: 232px;
+    background-color: white;
   }
   .loginbutton {
     width: 232px;
+    background-color: #A03037;
   }
   .mid {
     margin-left: 8vw;
@@ -18,6 +20,9 @@
     display: flex;
     width: 232px;
     height: 37px;
+    .facebookbButton{
+      color: #4266B2;
+    }
 
     .googleButton {
       margin-left: 25px;
