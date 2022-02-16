@@ -7,5 +7,8 @@ const AxiosService = {
   getService: (url, data, header = false) => {
     return axios.get(url, data, header);
   },
+  getcartService: (url, header=false)=>{
+    return axios.get(url,header)
+  }
 };
 export default AxiosService;

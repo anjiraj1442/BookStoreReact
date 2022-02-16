@@ -5,14 +5,12 @@ import Login from "../login/Login";
 import Signup from "../signup/Signup";
 
 function Mainpage() {
-  const [options, setOptions] = React.useState(true);
-  console.log("intial");
+  const [options, setOptions] = React.useState();
+
   const loginOptions = () => {
-    console.log("login");
     setOptions(true);
   };
   const signupOptions = () => {
-    console.log("signup");
     setOptions(false);
   };
 
@@ -23,12 +21,13 @@ function Mainpage() {
           <img className="mainLogo" src={logo} alt="this is logo"></img>
           <div className="logoname">ONLINE BOOK SHOPPING</div>
           <div className="loginsignin">
-            <div className="login" onClick={loginOptions}>
+            <div className="login" onClick={() => loginOptions(true)}>
               LOGIN
             </div>
-            <div className="signup" onClick={signupOptions}>
+            <div className="signup" onClick={() => signupOptions(false)}>
               SIGNUP
             </div>
+
             <div className="loginsignincomponents">
               {options ? <Login /> : <Signup />}
             </div>

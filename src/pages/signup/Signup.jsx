@@ -47,7 +47,7 @@ function Signup() {
       };
       UserService.signup(data)
         .then(() => {
-          console.log("sucss");
+          console.log("register");
         })
         .catch(() => {
           console.log("fail");

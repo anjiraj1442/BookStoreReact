@@ -5,7 +5,7 @@ import { UserService } from "../../Service/UserService";
 import { useNavigate } from "react-router";
 
 function Login() {
-  const navigate = useNavigate();
+   const navigate = useNavigate();
   const [textfieldvalues, setTextfieldvalues] = React.useState({
     emailId: "",
     password: "",
@@ -37,13 +37,12 @@ function Login() {
         password: textfieldvalues.password,
       };
       UserService.login(data)
-        .then(() => {
+        .then((result) => {
           console.log("step");
-          console.log(data);
-          //     console.log(data.data.data.result.fullname);
-          // localStorage.setItem("name" ,data.data.data.result.fullname )
-          // localStorage.setItem("token",data.data.data.token)
-          navigate("/dashboard");
+          console.log(result);
+          localStorage.setItem("token",result.data.data)
+          
+           navigate("/dashboard");
         })
         .catch((err) => {});
     }

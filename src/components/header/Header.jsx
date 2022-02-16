@@ -2,12 +2,21 @@ import React from "react";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import PermIdentityTwoToneIcon from "@mui/icons-material/PermIdentityTwoTone";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-
+import Badge from '@mui/material/Badge';
+import { useNavigate } from "react-router-dom";
 import bookimage from "../../Assets/education.png";
 
 import "./Header.scss";
 
-function Header() {
+function Header(props) {
+
+  const navigate = useNavigate();
+  
+  const cart = ()=>{
+    navigate('/cart')
+}
+
+  
   return (
     <>
       {" "}
@@ -28,9 +37,11 @@ function Header() {
           </div>
           <div className="person">Anji Raj</div>
         </div>
-        <div className="details-cart">
+        <div className="details-cart" onClick={()=>cart()}>
           <div className="">
+          <Badge badgeContent={props.quantity} color="primary">
             <ShoppingCartOutlinedIcon htmlColor="white" />
+            </Badge>
           </div>
           <div className="cart">Cart</div>
         </div>
