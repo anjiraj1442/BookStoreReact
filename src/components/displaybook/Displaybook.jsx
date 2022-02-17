@@ -30,31 +30,31 @@ function Displaybook(props) {
   };
   console.log(books);
 
-  const addCart = (book) => {
-    let data = {
-      _id: book._id,
-    };
-    CartService.addtocart(data)
-      .then((result) => {
-        getBooks();
-       
-       
-      })
-      .catch(() => {});
-  };
-  const wishlist = (book) => {
-    let data = {
-      _id: book._id,
-    };
-    wishlistService
-      .addwishlist(data)
-      .then(() => {
-        getBooks();
-       
-       
-      })
-      .catch(() => {});
-  };
+  // const addCart = (book) => {
+  //   let data = {
+  //     _id: book._id,
+  //   };
+  //   CartService.addtocart(data)
+  //     .then((result) => {
+  //      console.log(result);
+  //      props.getCart()
+  //      getBooks();
+  //     })
+  //     .catch(() => {});
+  // };
+  // const wishlist = (book) => {
+  //   let data = {
+  //     _id: book._id,
+  //   };
+  //   wishlistService
+  //     .addwishlist(data)
+  //     .then((result) => {
+  //      console.log(result);
+  //      props.getwishlist()
+  //      getBooks();
+  //     })
+  //     .catch(() => {});
+  //};
 
   return (
     <>
@@ -92,7 +92,7 @@ function Displaybook(props) {
                   <button
                     className="bag"
                     onClick={() => {
-                      addCart(book);
+                      // addCart(book);
                     }}
                   >
                     ADD TO BAG
@@ -100,7 +100,7 @@ function Displaybook(props) {
                   <button
                     className="wishlist"
                     onClick={() => {
-                      wishlist(book);
+                      // wishlist(book);
                     }}
                   >
                     WISHLIST
