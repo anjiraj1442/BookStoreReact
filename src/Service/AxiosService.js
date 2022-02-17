@@ -9,6 +9,9 @@ const AxiosService = {
   },
   getcartService: (url, header=false)=>{
     return axios.get(url,header)
+  },
+  getwishService: (url, header=false)=>{
+    return axios.get(url,header)
   }
 };
 export default AxiosService;

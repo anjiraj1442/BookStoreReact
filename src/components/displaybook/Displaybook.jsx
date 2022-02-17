@@ -3,12 +3,17 @@ import "./Displaybook.scss";
 import bookimage from "../../Assets/book.png";
 import { ProductService } from "../../Service/ProductService";
 
-import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-function Displaybook() {
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import { wishlistService } from "../../Service/WishlistService";
+import { CartService } from "../../Service/CartService";
+function Displaybook(props) {
   const [books, setBooks] = React.useState([]);
+  
   React.useEffect(() => {
+   
     getBooks();
+    
   }, []);
 
   const getBooks = () => {
@@ -24,6 +29,32 @@ function Displaybook() {
       });
   };
   console.log(books);
+
+  const addCart = (book) => {
+    let data = {
+      _id: book._id,
+    };
+    CartService.addtocart(data)
+      .then((result) => {
+        getBooks();
+       
+       
+      })
+      .catch(() => {});
+  };
+  const wishlist = (book) => {
+    let data = {
+      _id: book._id,
+    };
+    wishlistService
+      .addwishlist(data)
+      .then(() => {
+        getBooks();
+       
+       
+      })
+      .catch(() => {});
+  };
 
   return (
     <>
@@ -56,6 +87,24 @@ function Displaybook() {
                 </div>
                 <div className="pricebook">
                   <span className="">Rs:- {book.price}</span>
+                </div>
+                <div className="order">
+                  <button
+                    className="bag"
+                    onClick={() => {
+                      addCart(book);
+                    }}
+                  >
+                    ADD TO BAG
+                  </button>
+                  <button
+                    className="wishlist"
+                    onClick={() => {
+                      wishlist(book);
+                    }}
+                  >
+                    WISHLIST
+                  </button>
                 </div>
               </div>
             </div>

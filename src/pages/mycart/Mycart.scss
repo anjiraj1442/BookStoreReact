@@ -1,0 +1,262 @@
+.carts-container {
+  min-height: 525px;
+  display: flex;
+  flex-direction: column;
+}
+.heading {
+  margin-left: 10%;
+}
+.carts {
+  width: 50%;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  margin-left: 10%;
+  margin-top: 2%;
+  padding: 20px;
+  .my-cart {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font: normal normal medium 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #0a0102;
+  }
+  .content-container {
+    display: flex;
+    width: 100%;
+    margin-top: 3%;
+    .image_style {
+      width: 10%;
+    }
+    .cart-description {
+      width: 90%;
+      display: grid;
+      margin-left: 3%;
+      .bookname {
+        text-align: left;
+        font: normal normal normal 18px/17px Lato;
+        letter-spacing: 0px;
+        color: #0a0102;
+      }
+      .authorname {
+        text-align: left;
+        font: normal normal normal 15px/18px Lato;
+        letter-spacing: 0px;
+        color: #9d9d9d;
+      }
+      .bookprice {
+        font-weight: 600;
+        text-align: left;
+      }
+    }
+  }
+  .update-cart {
+    display: flex;
+    margin-top: 2%;
+    width: 100%;
+    .empty {
+      width: 10%;
+      display: flex;
+    }
+    .cart_right {
+      display: flex;
+      width: 90%;
+      margin-left: 3%;
+    }
+    .left {
+      display: flex;
+      width: 15%;
+      justify-content: space-between;
+      .cart-quantity {
+        width: 30%;
+        border: 1px solid;
+        border-color: lightgray;
+      }
+    }
+    .right {
+      display: flex;
+      justify-content: flex-end;
+      width: 12%;
+      .remove {
+        border: transparent;
+        background: none;
+      }
+    }
+  }
+  .button {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    .order {
+      width: 20%;
+      height: 25px;
+      background-color: #3371b5;
+      border: 0px;
+      border-radius: 3px;
+      color: white;
+      font-size: x-small;
+    }
+  }
+}
+
+.customer-details {
+  width: 50%;
+  display: flex;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 2px;
+  margin-left: 10%;
+  margin-top: 1%;
+  align-items: center;
+  .inside-details {
+    color: #4d4747;
+  }
+}
+
+.customers-detail {
+  width: 50%;
+  display: flex;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 1px;
+  margin-left: 10%;
+  margin-top: 1%;
+  align-items: center;
+  .inside-customerdetails {
+    width: 100%;
+    .h1 {
+      width: 100%;
+      display: flex;
+      font: bold;
+    }
+    .text-fields {
+      display: flex;
+      margin-top: 2%;
+      .mobile-num {
+        margin-left: 5%;
+      }
+    }
+    .Address {
+      margin-top: 2%;
+      display: flex;
+    }
+    .type {
+      margin-top: 2.5%;
+    }
+    .radio {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      .type {
+        width: 100%;
+        display: flex;
+      }
+      .radiogroup {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    .buttons {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      .continue-button {
+        width: 20%;
+        height: 25px;
+        background: #3371b5;
+        border-radius: 3px;
+        border: 0px;
+        color: #ffffff;
+        // margin-left: 75%;
+        // margin-bottom: 3%;
+      }
+    }
+  }
+}
+.order-details {
+  width: 812px;
+  height: auto;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #dcdcdc;
+  border-radius: 1px;
+  margin-left: 10%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  .inside-orderdetails {
+    width: 125px;
+    height: 24px;
+    text-align: left;
+    font: normal normal medium 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #333232;
+    margin-left: 8%;
+    margin-top: 3%;
+  }
+}
+
+.order_summary {
+  width: 50%;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  margin-left: 10%;
+  margin-top: 1%;
+  padding: 20px;
+  .my-cart {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font: normal normal medium 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #0a0102;
+  }
+  .content-container {
+    display: flex;
+    width: 100%;
+    margin-top: 3%;
+    .image_style {
+      width: 10%;
+    }
+    .cart-description {
+      width: 90%;
+      display: grid;
+      margin-left: 3%;
+      .bookname {
+        text-align: left;
+        font: normal normal normal 18px/17px Lato;
+        letter-spacing: 0px;
+        color: #0a0102;
+      }
+      .authorname {
+        text-align: left;
+        font: normal normal normal 15px/18px Lato;
+        letter-spacing: 0px;
+        color: #9d9d9d;
+      }
+      .bookprice {
+        font-weight: 600;
+        text-align: left;
+      }
+    }
+  }
+
+  .button {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    .order {
+      width: 20%;
+      height: 25px;
+      background-color: #3371b5;
+      border: 0px;
+      border-radius: 3px;
+      color: white;
+      font-size: x-small;
+    }
+  }
+}
