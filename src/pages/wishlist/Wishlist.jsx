@@ -8,8 +8,9 @@ import Displaywishlist from "../../components/displaywishlist/Displaywishlist";
 function Wishlist() {
   const [wishquantity, setWishquantity] = React.useState(0);
   const [wishlist, setWishlist] = React.useState([]);
-
+  const [quantity,setQuantity]=React.useState(0)
   React.useEffect(() => {
+    getCart()
     getwishlist();
   }, []);
 
@@ -17,22 +18,33 @@ function Wishlist() {
     wishlistService
       .getwishlist()
       .then((result) => {
-        console.log(result);
-        setWishquantity(result.data.data.length);
+        console.log(result.data.data[0].book.length);
+        setWishquantity(result.data.data[0].book.length);
         setWishlist(result.data.data);
         console.log(result.data.data);
       })
-      .catch(() => {
-        console.log("not getting");
+      .catch((err) => {
+        console.log("not getting", err);
       });
+     
   };
+
+  const getCart = ()=>{
+    CartService.getcart().then((result)=>{
+     setQuantity(result.data.data.length)
+    }).catch((err)=>{
+console.log("error", err)
+    })
+  }
 
   return (
     <div>
-      <Header wishquantity={wishquantity} />
+      <Header wishquantity={wishquantity} quantity={quantity} />
       <Displaywishlist
         wishlist={wishlist}
         getwishlist={getwishlist}
+        wishquantity={wishquantity}
+        getCart={getCart}
         wishquantity={wishquantity}
       />
       <Footer />

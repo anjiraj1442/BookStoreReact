@@ -4,8 +4,9 @@ import "./Login.scss";
 import { UserService } from "../../Service/UserService";
 import { useNavigate } from "react-router";
 
-function Login() {
-   const navigate = useNavigate();
+function Login(props) {
+  const navigate = useNavigate();
+  
   const [textfieldvalues, setTextfieldvalues] = React.useState({
     emailId: "",
     password: "",
@@ -40,11 +41,11 @@ function Login() {
         .then((result) => {
           console.log("step");
           console.log(result);
-          localStorage.setItem("token",result.data.data)
-          
-           navigate("/dashboard");
+          localStorage.setItem("token", result.data.data);
+
+          navigate("/dashboard");
         })
-        .catch((err) => {});
+        .catch(() => {});
     }
   };
   return (

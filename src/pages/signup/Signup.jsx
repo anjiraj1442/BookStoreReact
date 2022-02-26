@@ -2,8 +2,10 @@ import React from "react";
 import { Button, TextField } from "@material-ui/core";
 import "./Signup.scss";
 import { UserService } from "../../Service/UserService";
+import { useNavigate } from "react-router-dom";
+function Signup(props) {
+  const navigate = useNavigate();
 
-function Signup() {
   const [fields, setFields] = React.useState({
     fullname: "",
     email: "",
@@ -14,7 +16,7 @@ function Signup() {
     passwordError: "",
     phoneError: "",
   });
-
+  
   const changevalues = (e) => {
     setFields((previousvalues) => {
       return { ...previousvalues, [e.target.name]: e.target.value };
@@ -46,8 +48,14 @@ function Signup() {
         phone: fields.phone,
       };
       UserService.signup(data)
-        .then(() => {
+        .then((res) => {
           console.log("register");
+          localStorage.setItem("firstName", res.data.data.firstName);
+          localStorage.setItem("lastName", res.data.data.lastName);
+          localStorage.setItem("email", res.data.data.email);
+          localStorage.setItem("token", res.data.data.token);
+          localStorage.setItem("userId", res.data.data.userId);
+          navigate("/");
         })
         .catch(() => {
           console.log("fail");

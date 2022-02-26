@@ -6,7 +6,7 @@ import Signup from "../signup/Signup";
 
 function Mainpage() {
   const [options, setOptions] = React.useState();
-
+  const [test, settest]= React.useState("hello")
   const loginOptions = () => {
     setOptions(true);
   };
@@ -14,6 +14,7 @@ function Mainpage() {
     setOptions(false);
   };
 
+  
   return (
     <div>
       <div className="home-container">

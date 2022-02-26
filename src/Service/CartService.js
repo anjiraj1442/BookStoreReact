@@ -11,10 +11,17 @@ console.log(header);
 
 export const CartService = {
   addtocart: (data) => {
+    console.log("data", data);
     return AxiosService.postService(`${url}/cart/${data}`, data, header);
   },
 
   getcart: () => {
     return AxiosService.getcartService(`${url}/getcartbooks`, header);
   },
+
+  updatecart: (data)=>{
+    return AxiosService.updateService(`${url}/updatecart/${data}`,data,header)
+  }
+
+
 };
