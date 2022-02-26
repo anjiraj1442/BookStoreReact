@@ -8,15 +8,13 @@ import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOu
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
-
 import RadioGroup from "@mui/material/RadioGroup";
-
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { useNavigate } from "react-router";
+
 export default function Displaycart(props) {
   const navigate = useNavigate();
- 
 
   const [orderbutton, setOrderbutton] = React.useState(true);
   const [checkout, setCheckout] = React.useState(true);
@@ -33,8 +31,7 @@ export default function Displaycart(props) {
   const [continuebutton, setcontinuebutton] = React.useState(true);
 
   React.useEffect(() => {
-   props.getCart();
-   console.log(props.cart, "cart otes")
+    props.getCart();
   }, []);
   const changebutton = () => {
     setOrderbutton(false);
@@ -62,9 +59,7 @@ export default function Displaycart(props) {
     };
 
     Customerdetails.addcustomerdetails(data)
-      .then((result) => {
-        console.log(result);
-      })
+      .then((result) => {})
       .catch(() => {});
   };
   const callfunctions = () => {
@@ -72,76 +67,45 @@ export default function Displaycart(props) {
     orderSummary();
   };
 
-  const subtractquantity = (book) =>{
-    let data = {
-      "_id": book._id,
-    "userId": book.userId,
-    "quantity": book.quantity - 1
-    }
-
-     CartService.updatecart((data)=>{
-       props.getCart()
-     }).catch((err)=>{
-      console.log("error", err);
-     })
-    
-  }
-
-  // const getCart = () => {
-  //   CartService.getcart()
-  //     .then((result) => {
-  //       console.log(result);
-  //       setBooks(result.data.data.book);
-  //       console.log("getting all cat books", result.data.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
- 
-
   const checkoutorder = () => {
     navigate("/order");
   };
 
-// console.log(props.quantity);
   return (
     <>
       <div className="maincart-container">
         <h3 className="heading">Home/ My cart</h3>
         <div className="cart-container">
           <h3 className="my-cart">My Cart({props.quantity})</h3>
-          {console.log(props.cart, "cart otes")}
-          {props.cart? props.cart.map((books) => {
-            
-            return (
-              <div>
-                <div className="content-container">
-                  <div className="image-cart">
-                    <img
-                      src={bookimage}
-                      alt="image"
-                      style={({ height: "105px" }, { width: "100 px" })}
-                    />
+
+          {props.cart
+            ? props.cart.map((books) => {
+                return (
+                  <div>
+                    <div className="content-container">
+                      <div className="image-cart">
+                        <img
+                          src={bookimage}
+                          alt="image"
+                          style={({ height: "105px" }, { width: "100 px" })}
+                        />
+                      </div>
+                      <div className="cart-description">
+                        <div className="book-nam">{books.bookName}</div>
+                        <div className="author-nam">{books.author}</div>
+                        <div className="pricetage">Rs:-{books.price}</div>
+                      </div>
+                    </div>
+                    <div className="update-cart">
+                      <RemoveCircleOutlineOutlinedIcon htmlColor="grey" />
+                      <div className="cart-quantity">{books.quantity}</div>
+                      <AddCircleOutlineOutlinedIcon htmlColor="grey" />
+                      <div className="remove">Remove</div>
+                    </div>
                   </div>
-                  <div className="cart-description">
-                    <div className="book-nam">{books.bookName}</div>
-                    <div className="author-nam">{books.author}</div>
-                    <div className="pricetage">Rs:-{books.price}</div>
-                  </div>
-                </div>
-                <div className="update-cart">
-                  <RemoveCircleOutlineOutlinedIcon htmlColor="grey"  onClick={() => { subtractquantity(books) }} />
-                  <div className="cart-quantity">{books.quantity}</div>
-                  <AddCircleOutlineOutlinedIcon htmlColor="grey" />
-                  <div className="remove">Remove</div>
-                </div>
-              </div>
-            );
-            
-          })
-        :''
-        }
+                );
+              })
+            : ""}
           {orderbutton ? (
             <button
               className="button-order"

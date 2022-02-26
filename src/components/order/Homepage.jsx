@@ -4,13 +4,12 @@ import Footer from "../footer/Footer";
 import "./Homepage.scss";
 import order from "../../Assets/order.jpg";
 import order2 from "../../Assets/order1.jpg";
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
 export default function Homepage() {
-
-     const navigate = useNavigate();
-    const navDashboard = () => {
-        navigate('/dashboard')
-    }
+  const navigate = useNavigate();
+  const navDashboard = () => {
+    navigate("/dashboard");
+  };
   return (
     <div className="header">
       <Header />
@@ -25,14 +24,10 @@ export default function Homepage() {
           </div>
           <div className="const2">
             <div className="text_content1">
-            
               hurry!!! your order is confirmed
             </div>
-            <div >
-              
-              the order id is #123456 save the order id for
-            </div >
-            <div  className="text_content2">further communication..</div>
+            <div>the order id is #123456 save the order id for</div>
+            <div className="text_content2">further communication..</div>
           </div>
         </div>
         <div className="section-2">
@@ -50,7 +45,9 @@ export default function Homepage() {
           </div>
         </div>
         <div className="section-3">
-          <button className="buttonq"   onClick={() => navDashboard()}>CONTINUE SHOPPING</button>
+          <button className="buttonq" onClick={() => navDashboard()}>
+            CONTINUE SHOPPING
+          </button>
         </div>
       </div>
       <Footer />

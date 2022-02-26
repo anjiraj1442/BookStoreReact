@@ -12,19 +12,20 @@ function Dasboard() {
   const [wishlist, setWishlist] = React.useState([]);
 
   const getCart = () => {
-    CartService.getcart().then((result) => {
-      // console.log(result);
-      console.log(result.data.data.book);
-      setCart(result.data.data.book);
+    CartService.getcart()
+      .then((result) => {
+        console.log(result.data.data.book);
+        setCart(result.data.data.book);
 
-      var i = 0;
-      cart.map((data) => {
-        i = i + data.quantity;
+        var i = 0;
+        cart.map((data) => {
+          i = i + data.quantity;
+        });
+        setQuantity(i);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      setQuantity(i);
-    }).catch((err)=>{
-console.log(err);
-    })
   };
 
   const getwishlist = () => {
@@ -33,18 +34,18 @@ console.log(err);
       .then((result) => {
         console.log(result);
         setWishlist(result.data.data);
-        // setWishquantity(result.data.data.length);
-       var i=0;
-       wishlist.map((data)=>{
-         i=i+data.wishquantity;
-       })
-        
-       setWishquantity(i);
 
-         console.log(result.data.data, "wishlist");
+        var i = 0;
+        wishlist.map((data) => {
+          i = i + data.wishquantity;
+        });
+
+        setWishquantity(i);
+
+        console.log(result.data.data, "wishlist");
       })
-      .catch(() => {
-        console.log("not getting");
+      .catch((err) => {
+        console.log("not getting", err);
       });
   };
 

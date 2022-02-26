@@ -19,9 +19,11 @@ export const CartService = {
     return AxiosService.getcartService(`${url}/getcartbooks`, header);
   },
 
-  updatecart: (data)=>{
-    return AxiosService.updateService(`${url}/updatecart/${data}`,data,header)
-  }
-
-
+  updatecart: (data) => {
+    return AxiosService.updateService(
+      `${url}/updatecart/${data}`,
+      data,
+      header
+    );
+  },
 };

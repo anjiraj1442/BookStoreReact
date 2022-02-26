@@ -2,48 +2,33 @@ import React from "react";
 import "./Displaybook.scss";
 import bookimage from "../../Assets/book.png";
 import { ProductService } from "../../Service/ProductService";
-import { buttonClasses, getButtonBaseUtilityClass } from "@mui/material";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import Pagination from "@mui/material/Pagination";
-
 import { wishlistService } from "../../Service/WishlistService";
 import Stack from "@mui/material/Stack";
 import { CartService } from "../../Service/CartService";
-import { display, width } from "@mui/system";
 
 function Displaybook(props) {
-  
   const [books, setBooks] = React.useState([]);
   const [msg, setMsg] = React.useState();
 
   React.useEffect(() => {
-    // console.log(props.cart, "cart");
-    props.getCart();///updating the ui
+    props.getCart();
     getBooks();
-    //  props.getwishlist();
   }, []);
 
   const getBooks = () => {
     ProductService.getAllproducts()
       .then((result) => {
         setBooks(result.data.data);
-        // console.log("getting all books");
-        // console.log(result.data.data);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  console.log(books);
+ 
   const addCart = (book) => {
-    let data = {
-      _id: book._id,
-      // bookName:book.bookName,
-      // author:book.author,
-      // price:book.price
-    };
-    // console.log(data);
     CartService.addtocart(book._id)
       .then((result) => {
         console.log(result.data.data, "add to cart");
@@ -54,9 +39,6 @@ function Displaybook(props) {
       .catch(() => {});
   };
   const wishlist = (book) => {
-    let data = {
-      _id: book._id,
-    };
     wishlistService
       .addwishlist(book._id)
       .then(() => {
@@ -67,16 +49,11 @@ function Displaybook(props) {
       .catch(() => {});
   };
 
- 
   const buttons = (book) => {
     let butn = "";
     const obj = props.cart.find((data) => data.bookId === book._id);
-    console.log(obj);
-    // console.log(props.cart);
-    const wishl = props.wishlist.find((data) => data.bookId === book._id);
 
-    console.log(wishl);
-    // console.log(props.wishlist);
+    const wishl = props.wishlist.find((data) => data.bookId === book._id);
 
     if (obj) {
       butn = <button className="already-cart">Added to cart</button>;
@@ -162,7 +139,6 @@ function Displaybook(props) {
       <div className="map-containers">
         {books
           ? books.map((book, index) => {
-              // console.log(book);
               return (
                 <div className="books-display">
                   <div className="image-display">
@@ -199,9 +175,7 @@ function Displaybook(props) {
       </div>
       <div className="paginationg">
         <Stack spacing={1}>
-          <Pagination
-            
-          />
+          <Pagination />
         </Stack>
       </div>
     </>

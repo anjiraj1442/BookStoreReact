@@ -7,14 +7,14 @@ const AxiosService = {
   getService: (url, data, header = false) => {
     return axios.get(url, data, header);
   },
-  getcartService: (url, header=false)=>{
-    return axios.get(url,header)
+  getcartService: (url, header = false) => {
+    return axios.get(url, header);
   },
-  getwishService: (url, header=false)=>{
-    return axios.get(url,header)
+  getwishService: (url, header = false) => {
+    return axios.get(url, header);
   },
-  updateService: (url,data,header )=>{
+  updateService: (url, data, header) => {
     return axios.put(url, data, header);
-  }
+  },
 };
 export default AxiosService;

@@ -1,18 +1,14 @@
 import React from "react";
 import Book from "../../Assets/book.png";
 import "./Displaywishlist.scss";
-import { ProductService } from "../../Service/ProductService";
-
+import { CartService } from "../../Service/CartService";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
-import Wishlist from "../../pages/wishlist/Wishlist";
-import { CartService } from "../../Service/CartService";
 function Displaywishlist(props) {
   console.log(props);
   React.useEffect(() => {
     props.getwishlist();
-    // props.getBooks()
   }, []);
 
   const addtocart = (data) => {
@@ -21,18 +17,14 @@ function Displaywishlist(props) {
     };
     CartService.addtocart(data1)
       .then((result) => {
-        console.log(result);
         props.getCart();
         props.getwishlist();
       })
-      .catch((err) => {
-        console.log(err, "error");
-      });
+      .catch(() => {});
   };
 
-  console.log(props.wishlist[0] ? props.wishlist[0].book : []);
- const whisbook= props.wishlist[0] ? props.wishlist[0].book : []
- console.log(props.wishquantity);
+  const whisbook = props.wishlist[0] ? props.wishlist[0].book : [];
+
   return (
     <>
       <div className="displaywish-container">
@@ -42,7 +34,6 @@ function Displaywishlist(props) {
 
           {whisbook.length
             ? props.wishlist[0].book.map((data) => {
-                console.log(data);
                 return (
                   <div className="book-detail">
                     <div className="book-det">

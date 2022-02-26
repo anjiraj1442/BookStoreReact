@@ -16,7 +16,7 @@ function Signup(props) {
     passwordError: "",
     phoneError: "",
   });
-  
+
   const changevalues = (e) => {
     setFields((previousvalues) => {
       return { ...previousvalues, [e.target.name]: e.target.value };

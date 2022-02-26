@@ -6,15 +6,12 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-//     margin-top: 30px;
-//     background-color: lightyellow;
+
     .section-1 {
       display: flex;
       flex-direction: column;
       align-items: center;
-     
-     
-     //  justify-content: center;
+
       .image1 {
         margin-top: 20px;
       }
@@ -24,16 +21,14 @@
       .image2 {
         margin-top: 20px;
       }
-      .text_content1{
-          margin-left: 50px;
-          
-     }
-     .text_content2{
-          margin-left: 65px;
-         
-     }
+      .text_content1 {
+        margin-left: 50px;
+      }
+      .text_content2 {
+        margin-left: 65px;
+      }
     }
-   
+
     .section-2 {
       width: 100%;
       align-items: center;
